@@ -21,6 +21,6 @@ public class pzcontroller {
     @RequestMapping(value="/ola/{name}")
     @ResponseBody
     public String Hi(@PathVariable String name){
-        return "Hi "+name;
+        return "Hi again "+name;
     }
 }
