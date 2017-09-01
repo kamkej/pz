@@ -24,7 +24,7 @@ public class pzcontroller {
     @ResponseBody
     @RequestMapping()
     public String Hi(){
-        log.info("passou");
+        log.info("passou2");
         return "Hi ;)";
        
     }

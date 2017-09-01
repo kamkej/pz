@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-//@EnableJpaRepositories(basePackages = "com.telefonica.oss.pocpz.model.repos")
+@EnableJpaRepositories(basePackages = "com.telefonica.oss.pocpz.model.repos")
 public class DBConfiguration {
     @Bean
     public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
@@ -51,7 +51,7 @@ public class DBConfiguration {
 		
 	Properties jpaProterties = new Properties();
 	jpaProterties.put("hibernate.dialect", "org.hibernate.dialect.Oracle12cDialect");
-	jpaProterties.put("hibernate.hbm2ddl.auto", "update");
+	jpaProterties.put("hibernate.hbm2ddl.auto", "none");
 	entityManagerFactoryBean.setJpaProperties(jpaProterties);
 	return entityManagerFactoryBean;
 
