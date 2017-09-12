@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.telefonica.oss.pocpz.config.controller;
+package com.telefonica.oss.pocpz.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import com.telefonica.oss.pocpz.model.repository.PizzaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,18 +20,25 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value="/")
 public class pzcontroller {
-    private static final Logger log = LoggerFactory.getLogger(pzcontroller.class);
+    @Autowired private PizzaRepository pizzaRepository;
     
     @ResponseBody
     @RequestMapping()
-    public String Hi(){
-        log.info("passou2");
+    public String Hi() {
+        
         return "Hi ;)";
-       
     }
     @RequestMapping(value="/ola/{name}")
     @ResponseBody
     public String Hi(@PathVariable String name){
+
         return "Hi again "+name;
     }
+    @RequestMapping(value="/howmany")
+    @ResponseBody
+    public String howMany(){
+   
+        return "Total: "+pizzaRepository.count();
+    }
+ 
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN" name= "Myapp" monitorInterval="30">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+     <File name="MyFile" fileName="C:/app/logs/pocPZ.log">
+      <PatternLayout>
+          <!-- level date classe thread message -->
+        <Pattern>%p %d{dd-MMM-yyyy HH:mm:ss,SSS} %c{1.} [%t] %m%n</Pattern>
+      </PatternLayout>
+    </File>
+  </Appenders>
+  <Loggers>
+    <logger name="com.telefonica.oss" level="INFO"  >
+        <AppenderRef ref="MyFile"/>
+    </logger>
+    <!--TRACE, DEBUG, INFO, WARN, ERROR, and FATAL -->
+    <Root level="DEBUG">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>

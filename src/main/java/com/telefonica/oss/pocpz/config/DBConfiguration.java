@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.telefonica.oss.pocpz.model.repos")
+@EnableJpaRepositories(basePackages = "com.telefonica.oss.pocpz.model.repository")
 public class DBConfiguration {
     @Bean
     public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
@@ -45,13 +45,13 @@ public class DBConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws IllegalStateException, PropertyVetoException, NamingException {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 	entityManagerFactoryBean.setDataSource(dataSource());
-	entityManagerFactoryBean.setPackagesToScan("com.telefonica.oss.pocpz.config.model.entity");
+	entityManagerFactoryBean.setPackagesToScan("com.telefonica.oss.pocpz.model.entity");
 	entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
 	entityManagerFactoryBean.setJpaDialect(new HibernateJpaDialect());
 		
 	Properties jpaProterties = new Properties();
 	jpaProterties.put("hibernate.dialect", "org.hibernate.dialect.Oracle12cDialect");
-	jpaProterties.put("hibernate.hbm2ddl.auto", "none");
+	jpaProterties.put("hibernate.hbm2ddl.auto", "update");
 	entityManagerFactoryBean.setJpaProperties(jpaProterties);
 	return entityManagerFactoryBean;
 
