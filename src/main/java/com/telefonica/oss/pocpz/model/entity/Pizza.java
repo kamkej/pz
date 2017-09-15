@@ -26,7 +26,7 @@ import javax.persistence.Table;
 public class Pizza {
     
    @Id
-   @GeneratedValue(strategy = GenerationType.SEQUENCE)
+   @GeneratedValue(strategy = GenerationType.AUTO)
    private Long id;
    
    private String nome;
