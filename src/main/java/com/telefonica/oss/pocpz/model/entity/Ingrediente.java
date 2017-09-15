@@ -8,6 +8,7 @@ package com.telefonica.oss.pocpz.model.entity;
 
 import com.telefonica.oss.pocpz.model.enumeration.Categoria;
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -33,8 +34,8 @@ public class Ingrediente implements Serializable {
     @NotNull
     @NotEmpty
     private String nome;
+    
     @NotNull
-    @NotEmpty
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
@@ -61,7 +62,41 @@ public class Ingrediente implements Serializable {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.id);
+        hash = 89 * hash + Objects.hashCode(this.nome);
+        hash = 89 * hash + Objects.hashCode(this.categoria);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Ingrediente other = (Ingrediente) obj;
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (this.categoria != other.categoria) {
+            return false;
+        }
+        return true;
+    }
+
+  
     
     
 }

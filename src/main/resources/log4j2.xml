@@ -8,12 +8,12 @@
      <File name="MyFile" fileName="C:/app/logs/pocPZ.log">
       <PatternLayout>
           <!-- level date classe thread message -->
-        <Pattern>%p %d{dd-MMM-yyyy HH:mm:ss,SSS} %c{1.} [%t] %m%n</Pattern>
+        <Pattern>%p %d{dd-MMM-yyyy HH:mm:ss} %c{1.}  %m%n</Pattern>
       </PatternLayout>
     </File>
   </Appenders>
   <Loggers>
-    <logger name="com.telefonica.oss" level="INFO"  >
+    <logger name="com.telefonica.oss" level="TRACE"  >
         <AppenderRef ref="MyFile"/>
     </logger>
     <!--TRACE, DEBUG, INFO, WARN, ERROR, and FATAL -->

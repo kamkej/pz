@@ -15,6 +15,7 @@ var aplicatListenerBtnSalvar = function(){
 			.done(function(pagina){
 				$('#secao-ingredientes').html(pagina)
 				aplicarListeners();
+                                
 				
 			})
 			.fail(function(){

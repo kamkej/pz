@@ -16,38 +16,30 @@
         <title>${title}</title>
         <c:set var="path" value="${pageContext.request.contextPath}" scope="request"/>
         <style type="text/css">
-			@IMPORT url("${path}/static/bootstrap/css/bootstrap.min.css");
-			@IMPORT url("${path}/static/bootstrap/css/bootstrap-theme.min.css");
-	</style>
+            @IMPORT url("${path}/static/bootstrap/css/bootstrap.min.css");
+            @IMPORT url("${path}/static/bootstrap/css/bootstrap-theme.min.css");
+        </style>
     </head>
     <body>
-        <table class="table table-hover table-condensed table-striped table-bordered">
-            <thead>
-                <tr>
-                    <td>Codigo</td>
-                    <td>Nome</td>
-                    <td>Categoria</td>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach items="${lista}" var="ingrediente">
-                    <tr>
-                        <td>${ingrediente.id}</td>
-                        <td>${ingrediente.nome}</td>
-                        <td>${ingrediente.categoria}</td>
-                    </tr>
-                </c:forEach>
-               
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3">Total: ${lista.size()}</td>
-                </tr>
-            </tfoot>
-        </table>
-                <script type="text/javascript" src="${path}/static/js/jquery-2.1.3.min.js"></script>
-		<script type="text/javascript" src="${path}/static/bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="${path}/static/js/ingredientes.js"></script>
+        <div class="container">
+            <c:if test="${not empty messageErro}">
+                <div>
+                    <div class="alert alert-danger">${messageErro}</div>
+                </div>
+            </c:if>
+            <c:if test="${not empty messageInfo}">
+                <div>
+                    <div class="alert alert-info">${messageInfo}</div>
+                </div>
+            </c:if>
+            <section  id="secao-ingredientes">
+                <jsp:include page="tabela-ingredientes.jsp"/>
+            </section>
+
+            <jsp:include page="modal-ingredientes.jsp"/>
+        </div>
+        <script type="text/javascript" src="${path}/static/js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="${path}/static/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="${path}/static/js/ingredientes.js"></script>
     </body>
 </html>
