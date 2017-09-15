@@ -35,13 +35,13 @@ public class DBConfiguration {
     @Bean
     public DataSource dataSource() throws NamingException, PropertyVetoException  {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
-	/*dataSource.setDriverClass("oracle.jdbc.driver.OracleDriver");
+	dataSource.setDriverClass("oracle.jdbc.driver.OracleDriver");
 	dataSource.setJdbcUrl("jdbc:oracle:thin:@//10.200.6.204:1521/desenv");
 	dataSource.setUser("ENG_DEV");
-	dataSource.setPassword("Vivo15#");*/
-        dataSource.setJdbcUrl("jdbc:oracle:thin:@oraclelab:1521:orcl");
+	dataSource.setPassword("Vivo15#");
+       /* dataSource.setJdbcUrl("jdbc:oracle:thin:@oraclelab:1521:orcl");
 	dataSource.setUser("admin");
-	dataSource.setPassword("oracle");
+	dataSource.setPassword("oracle");*/
 	return dataSource;
    }
     @Bean
@@ -54,7 +54,7 @@ public class DBConfiguration {
 		
 	Properties jpaProterties = new Properties();
 	jpaProterties.put("hibernate.dialect", "org.hibernate.dialect.Oracle12cDialect");
-	jpaProterties.put("hibernate.hbm2ddl.auto", "create");
+	jpaProterties.put("hibernate.hbm2ddl.auto", "update");
 	entityManagerFactoryBean.setJpaProperties(jpaProterties);
 	return entityManagerFactoryBean;
 
