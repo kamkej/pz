@@ -57,6 +57,6 @@ public class IngredienteController {
         }
         model.addAttribute("lista",ingredientesRepository.findAll());
         model.addAttribute("categorias", Categoria.values());
-        return "/ingredientes/tabela-ingredientes";
+        return "ingredientes/tabela-ingredientes";
     }
 }
