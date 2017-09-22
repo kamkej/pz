@@ -16,11 +16,11 @@
     </thead>
     <tbody>
     <c:forEach items="${lista}" var="ingrediente">
-        <tr>
+        <tr data-id=${ingredientes.id}>
             <td>${ingrediente.id}</td>
             <td>${ingrediente.nome}</td>
             <td>${ingrediente.categoria}</td>
-            <td><button class="btn btn-danger">X</button></td>
+            <td><button type="button" class="btn btn-danger btn-deletar">X</button></td>
         </tr>
     </c:forEach>
 
@@ -32,7 +32,7 @@
     <tr>
         <td colspan="4">
             <button type="button" class="btn btn-primary" data-toggle="modal"
-                    data-target="#modal-ingrediente">Cadastrar Ingrediente</button>
+             data-target="#modal-ingrediente">Cadastrar Ingrediente</button>
         </td>
     </tr>
 </tfoot>

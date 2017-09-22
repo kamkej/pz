@@ -55,9 +55,10 @@ var aplicarListeners = function(){
 	
 	
 	$('.btn-deletar').on('click', function(){
+            
 		var id = $(this).parents('tr').data('id');
 		var csrf = $('#csrf').val();
-		
+		alert(id);
 		$.ajax({
 			url : "ingredientes/"+id,
 			type: 'DELETE',

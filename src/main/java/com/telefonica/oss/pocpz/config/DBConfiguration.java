@@ -36,12 +36,14 @@ public class DBConfiguration {
     public DataSource dataSource() throws NamingException, PropertyVetoException  {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
 	dataSource.setDriverClass("oracle.jdbc.driver.OracleDriver");
-	dataSource.setJdbcUrl("jdbc:oracle:thin:@//10.200.38.219:1521/orcl");
+        
+	/*dataSource.setJdbcUrl("jdbc:oracle:thin:@//10.200.38.219:1521/orcl");
 	dataSource.setUser("G0006185");
-	dataSource.setPassword("m4a88td");
-        /*dataSource.setJdbcUrl("jdbc:oracle:thin:@oraclelab:1521:orcl");
+	dataSource.setPassword("m4a88td");*/
+        //*******************************************
+        dataSource.setJdbcUrl("jdbc:oracle:thin:@oraclelab:1521:orcl");
 	dataSource.setUser("admin");
-	dataSource.setPassword("oracle");*/
+	dataSource.setPassword("oracle");
 	return dataSource;
    }
     @Bean
