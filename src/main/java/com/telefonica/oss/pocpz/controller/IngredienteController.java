@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -62,7 +63,7 @@ public class IngredienteController {
         model.addAttribute("categorias", Categoria.values());
         return "ingredientes/tabela-ingredientes";
     }
-    @RequestMapping(method = RequestMethod.DELETE, value="(id)")
+    @RequestMapping(method = RequestMethod.DELETE, value="/{id}")
     public ResponseEntity<String> delIngredientes(@PathVariable long id){
         try{
             ingredientesRepository.delete(id);
@@ -71,5 +72,11 @@ public class IngredienteController {
             return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
         }
     
+    }
+    @RequestMapping(method=RequestMethod.GET, value="/{id}")
+    @ResponseBody
+    public Ingrediente getIngrediente(@PathVariable long id){
+        log.info("Passou edit:"+id);
+        return ingredientesRepository.findOne(id);
     }
 }

@@ -11,26 +11,27 @@
             <td>Nome</td>
             <td>Categoria</td>
             <td>açao</td>
-
+            <td>açao</td>
         </tr>
     </thead>
     <tbody>
     <c:forEach items="${lista}" var="ingrediente">
-        <tr data-id=${ingredientes.id}>
+        <tr data-id="${ingrediente.id}">
             <td>${ingrediente.id}</td>
             <td>${ingrediente.nome}</td>
             <td>${ingrediente.categoria}</td>
             <td><button type="button" class="btn btn-danger btn-deletar">X</button></td>
+            <td><button type="button" class="btn btn-editar glyphicon glyphicon-pencil">X</button></td>
         </tr>
     </c:forEach>
-
+ 
 </tbody>
 <tfoot>
     <tr>
-        <td colspan="4">Total: ${lista.size()}</td>
+        <td colspan="5">Total:<span id="quantidade-ingredientes"> ${lista.size()}</span></td>
     </tr>
     <tr>
-        <td colspan="4">
+        <td colspan="5">
             <button type="button" class="btn btn-primary" data-toggle="modal"
              data-target="#modal-ingrediente">Cadastrar Ingrediente</button>
         </td>
