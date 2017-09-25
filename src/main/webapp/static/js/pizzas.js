@@ -63,7 +63,7 @@ var aplicarListeners = function(){
 				$('#id').val(pizza.id);
 				$('#nome').val(pizza.nome);
 				$('#preco').val(pizza.preco);
-				$('#categoria').val(pizza.categoria);
+				$('#tamanho').val(pizza.tamanho);
 				
 				pizza.ingredientes.forEach(function(ingrediente){
 					var id = ingrediente.id;

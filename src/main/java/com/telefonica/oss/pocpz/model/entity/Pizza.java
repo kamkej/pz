@@ -36,6 +36,14 @@ public class Pizza {
    @ManyToMany
    private Set<Ingrediente> ingredientes;
 
+    public Set<Ingrediente> getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(Set<Ingrediente> ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+
     public Long getId() {
         return id;
     }
@@ -68,14 +76,7 @@ public class Pizza {
         this.tamanho = tamanho;
     }
 
-    public Set<Ingrediente> getCategoria() {
-        return ingredientes;
-    }
 
-    public void setCategoria(Set<Ingrediente> ingrediente) {
-        this.ingredientes = ingrediente;
-    }
-
-    
+      
   
 }
