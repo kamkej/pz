@@ -55,8 +55,9 @@ public class DBConfiguration {
 	entityManagerFactoryBean.setJpaDialect(new HibernateJpaDialect());
 		
 	Properties jpaProterties = new Properties();
-	jpaProterties.put("hibernate.dialect", "org.hibernate.dialect.Oracle12cDialect");
-	jpaProterties.put("hibernate.hbm2ddl.auto", "update");
+	//jpaProterties.put("hibernate.dialect", "org.hibernate.dialect.Oracle12cDialect");
+        jpaProterties.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
+	jpaProterties.put("hibernate.hbm2ddl.auto", "none");
 	entityManagerFactoryBean.setJpaProperties(jpaProterties);
 	return entityManagerFactoryBean;
 

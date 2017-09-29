@@ -22,6 +22,7 @@
     </head>
     <body>
         <div class="container">
+             <jsp:include page="../menu-pizzaria.jsp"></jsp:include>
             <c:if test="${not empty messageErro}">
                 <div>
                     <div class="alert alert-danger">${messageErro}</div>

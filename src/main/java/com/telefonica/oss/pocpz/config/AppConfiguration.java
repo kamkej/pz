@@ -41,7 +41,7 @@ public class AppConfiguration implements WebApplicationInitializer {
 	filter.addMappingForUrlPatterns(getDispatcherTypes(), false, "/*");
     }
 
-    private DispatcherServlet dispatcherServlet(WebApplicationContext webApplicationContext) {
+   private DispatcherServlet dispatcherServlet(WebApplicationContext webApplicationContext) {
          return new DispatcherServlet(webApplicationContext);
     }
 

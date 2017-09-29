@@ -13,8 +13,20 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     
     <dependencies>
+
+     <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc14 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -93,13 +105,24 @@
             <artifactId>log4j-core</artifactId>
             <version>2.9.0</version>
         </dependency>
-             <!-- https://mvnrepository.com/artifact/com.querydsl/querydsl-jpa -->
+        <!-- https://mvnrepository.com/artifact/com.querydsl/querydsl-jpa -->
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
             <version>4.1.4</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>4.0.0.RC2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>4.0.0.RC2</version>
+        </dependency>
     </dependencies>
+    
   
 
 

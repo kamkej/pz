@@ -5,7 +5,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <table class="table table-hover table-condensed table-striped table-bordered">
-    <fmt:setLocale value="pt_BR"/>
+ 
     <thead>
         <tr>
             <td>#</td>
@@ -23,10 +23,16 @@
             <td>${pizza.id}</td>
             <td>${pizza.nome}</td>
             <td>
-                <fmt:formatNumber type="currency" value="${pizza.preco}"/>
+                <fmt:setLocale value="pt_BR"/>
+                <fmt:formatNumber value="${pizza.preco}" type="currency"/>
             </td>
             <td>${pizza.tamanho}</td>
-            <td>${pizza.ingredientes}</td>
+            <td>
+                <c:forEach items="${pizza.ingredientes}" var="ingrediente">
+                    ${ingrediente.nome}<br>
+                </c:forEach>
+                
+            </td>
 
             <td><button type="button" class="btn btn-danger btn-deletar">X</button></td>
             <td><button type="button" class="btn btn-editar glyphicon glyphicon-pencil">X</button></td>
@@ -36,7 +42,7 @@
 </tbody>
 <tfoot>
     <tr>
-        <td colspan="7">Total:<span id="quantidade-ingredientes"> ${pizza.size()}</span></td>
+        <td colspan="7">Total:<span id="quantidade-pizzas"> ${pizza.size()}</span></td>
     </tr>
     <tr>
         <td colspan="7">

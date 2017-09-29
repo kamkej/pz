@@ -21,7 +21,9 @@
         </style>
     </head>
     <body>
+        
         <div class="container">
+            <jsp:include page="../menu-pizzaria.jsp"></jsp:include>
             <c:if test="${not empty messageErro}">
                 <div>
                     <div class="alert alert-danger">${messageErro}</div>
@@ -40,6 +42,6 @@
         </div>
         <script type="text/javascript" src="${path}/static/js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="${path}/static/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="${path}/static/js/pizzas.js"></script>
+        <script type="text/javascript" src="${path}/static/js/pizza.js"></script>
     </body>
 </html>
